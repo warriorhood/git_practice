@@ -1,14 +1,16 @@
 name: aprender-actions
+
 on: [push]
-jobs: 
+
+jobs:
   check-bats-version:
-     runs-on: ubuntu-latest
-     steps:
-       -uses: actions/checkout@v3
-       -uses: actions/setup-node@v3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          nose-version: '14'
-      -run: npm install -g bats
-      -run: bats -v
+          node-version: '18'  # Replace '18' with your desired Node.js version
+      - run: npm install -g bats  # Consider using a local installation or nvm
+      - run: bats -v
           
 
